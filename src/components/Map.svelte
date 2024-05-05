@@ -61,7 +61,7 @@
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
       countries: "us",
-      placeholder: "Search address",
+      placeholder: "Zoom to location",
     });
 
     // geocoderContainer.appendChild(geocoder.onAdd());
