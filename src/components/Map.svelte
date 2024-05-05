@@ -14,22 +14,12 @@
 
   let map;
   let geocoderContainer;
-  let activeProp = "Prop A";
+  let activeProp = "Prop B";
 
-  let minRadius = 2;
-  let maxRadius = 10;
-  let normalizer = 1;
-
-  let rScale = scaleSqrt().domain([0, 112530]).range([0, 20]);
-
-  function calculateRadius(value) {
-    let scaledValue = value * normalizer;
-    return Math.max(minRadius, Math.min(maxRadius, scaledValue));
-  }
+  let rScale = scaleSqrt().domain([0, 112530]).range([1, 20]);
 
   // Tooltip related variables
   let tooltip = null;
-  let tooltipContent = "";
 
   let colors = ["#966139", "#61AA04"];
 
@@ -62,6 +52,7 @@
       mapboxgl: mapboxgl,
       countries: "us",
       placeholder: "Zoom to location",
+      marker: false,
     });
 
     // geocoderContainer.appendChild(geocoder.onAdd());
@@ -112,6 +103,9 @@
         },
       });
 
+
+      updateMap();
+
       // Initialize tooltip div
       tooltip = new mapboxgl.Popup({
         closeButton: false,
@@ -160,8 +154,12 @@
       // Add mouseleave event to hide tooltip
       map.on("mouseleave", "circle-layer", () => {
         map.getCanvas().style.cursor = "";
-        map.setPaintProperty('circle-layer', 'circle-stroke-width', 1); 
-        map.setPaintProperty('circle-layer', 'circle-stroke-color',  activeProp == "Prop A" ? colors[0] : colors[1]); 
+        map.setPaintProperty("circle-layer", "circle-stroke-width", 1);
+        map.setPaintProperty(
+          "circle-layer",
+          "circle-stroke-color",
+          activeProp == "Prop A" ? colors[0] : colors[1]
+        );
         tooltip.remove();
       });
     });
@@ -180,7 +178,7 @@
       }
     });
   });
-  ["get", "radius"];
+
   function updateMap() {
     map.setPaintProperty("circle-layer", "circle-radius", [
       "get",
@@ -197,6 +195,18 @@
       "circle-stroke-color",
       activeProp == "Prop A" ? colors[0] : colors[1]
     );
+
+    // Update filter to reflect changes in activeProp
+    map.setFilter("circle-layer", [
+      "!=",
+      [
+        "get",
+        activeProp == "Prop A"
+          ? "amount_of_biosolids_generated"
+          : "amount_of_biosolids_managed_land_applied",
+      ],
+      0,
+    ]);
   }
 
   function changeProp(prop) {
@@ -210,18 +220,21 @@
     <Legend {rScale} />
 
     <div class="toggle">
-      <span class="dek">Size waste water treatment centers by</span>
+      <span class="dek">Size waste water treatment plants by</span>
       <div class="buttons">
-        <button
-          class:active={activeProp == "Prop A"}
-          style:--color={colors[0]}
-          on:click={() => changeProp("Prop A")}>Biosolids generated</button
-        >
+        
         <button
           class:active={activeProp == "Prop B"}
           style:--color={colors[1]}
           on:click={() => changeProp("Prop B")}>Biosolids spread</button
         >
+
+        <button
+          class:active={activeProp == "Prop A"}
+          style:--color={colors[0]}
+          on:click={() => changeProp("Prop A")}>Biosolids generated</button
+        >
+
       </div>
     </div>
   </div>

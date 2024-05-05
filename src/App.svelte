@@ -15,11 +15,11 @@
 <div class="chart-container">
   <h1 class="headline">
     Mapping sewage sludge generation and land application at wastewater
-    treatment facilities in 2023
+    treatment plants in 2023
   </h1>
   <p class="dek">
     The EPA's ECHO database tracks the generation and land application of
-    biosolids at wastewater treatment facilities. Often referred to as sewage
+    biosolids at wastewater treatment plants. Often referred to as sewage
     sludge, biosolids are spread on agricultural fields as fertilizer and poses
     environmental risks, including PFAS contamination.
   </p>
