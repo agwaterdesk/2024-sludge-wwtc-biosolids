@@ -59,6 +59,8 @@
 
     map.addControl(geocoder, "top-left");
 
+    map.addControl(new mapboxgl.NavigationControl());
+
     let preparedFeatures = prepareData(data, activeProp);
 
     map.on("load", () => {
