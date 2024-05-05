@@ -1,0 +1,259 @@
+@use "sass:map";
+@use "sass:list";
+
+
+/*=============================================
+=            Color Variables                  =
+=============================================*/
+
+/*----------  Standard Palette  ----------*/
+
+$color-greys: (
+  #3a3a3a,
+  #4e4e4e,
+  #626262,
+  #757575,
+  #898989,
+  #a0a1a1,
+  #b8b8b9,
+  #cfd0d0,
+  #e6e7e8,
+  #f5f5f5
+);
+
+$color-browns: (
+  #301905,
+  #442b15,
+  #583d26,
+  #6b4f36,
+  #7f6146,
+  #9b7c57,
+  #b79769,
+  #d3b27a,
+  #efcd8b
+);
+
+$color-khakis: (
+  #685f4d,
+  #7d7355,
+  #92865d,
+  #a79a65,
+  #bcad6d,
+  #cabd86,
+  #d8cda0,
+  #e6ddba,
+  #f4edd3
+);
+
+$color-yellows: (
+  #875d00,
+  #a56f05,
+  #c3810b,
+  #e19310,
+  #ffa515,
+  #ffbc3b,
+  #fed260,
+  #fee986,
+  #fdffab
+);
+
+$color-oranges: (
+  #663000,
+  #8c4200,
+  #b35500,
+  #d96700,
+  #ff7900,
+  #ff942f,
+  #ffaf5e,
+  #ffca8c,
+  #ffe5bb
+);
+
+$color-reds: (
+  #660000,
+  #8c1408,
+  #b32710,
+  #d93b17,
+  #ff4e1f,
+  #ff714e,
+  #ff937c,
+  #ffb6ab,
+  #ffd9d9
+);
+
+$color-purples: (
+  #1e0066,
+  #300d8c,
+  #421ab3,
+  #5326d9,
+  #6533ff,
+  #835bff,
+  #a283ff,
+  #c0aaff,
+  #ded2ff
+);
+
+$color-blues: (
+  #00347f,
+  #054f9f,
+  #0b6abf,
+  #1085df,
+  #15a0ff,
+  #3fb4ff,
+  #68c9ff,
+  #92ddff,
+  #bbf2ff
+);
+
+$color-greens: (
+  #005e1d,
+  #007831,
+  #009144,
+  #00ab58,
+  #00c46b,
+  #33d387,
+  #65e2a4,
+  #98f0c0,
+  #caffdc
+);
+
+$color-grey-900: nth($color-greys, 1);
+$color-grey-800: nth($color-greys, 2);
+$color-grey-700: nth($color-greys, 3);
+$color-grey-600: nth($color-greys, 4);
+$color-grey-500: nth($color-greys, 5);
+$color-grey-400: nth($color-greys, 6);
+$color-grey-300: nth($color-greys, 7);
+$color-grey-200: nth($color-greys, 8);
+$color-grey-100: nth($color-greys, 9);
+$color-grey-000: nth($color-greys, 10);
+
+$color-brown-900: nth($color-browns, 1);
+$color-brown-800: nth($color-browns, 2);
+$color-brown-700: nth($color-browns, 3);
+$color-brown-600: nth($color-browns, 4);
+$color-brown-500: nth($color-browns, 5);
+$color-brown-400: nth($color-browns, 6);
+$color-brown-300: nth($color-browns, 7);
+$color-brown-200: nth($color-browns, 8);
+$color-brown-100: nth($color-browns, 9);
+
+$color-khaki-900: nth($color-khakis, 1);
+$color-khaki-800: nth($color-khakis, 2);
+$color-khaki-700: nth($color-khakis, 3);
+$color-khaki-600: nth($color-khakis, 4);
+$color-khaki-500: nth($color-khakis, 5);
+$color-khaki-400: nth($color-khakis, 6);
+$color-khaki-300: nth($color-khakis, 7);
+$color-khaki-200: nth($color-khakis, 8);
+$color-khaki-100: nth($color-khakis, 9);
+
+$color-yellow-900: nth($color-yellows, 1);
+$color-yellow-800: nth($color-yellows, 2);
+$color-yellow-700: nth($color-yellows, 3);
+$color-yellow-600: nth($color-yellows, 4);
+$color-yellow-500: nth($color-yellows, 5);
+$color-yellow-400: nth($color-yellows, 6);
+$color-yellow-300: nth($color-yellows, 7);
+$color-yellow-200: nth($color-yellows, 8);
+$color-yellow-100: nth($color-yellows, 9);
+
+$color-orange-900: nth($color-oranges, 1);
+$color-orange-800: nth($color-oranges, 2);
+$color-orange-700: nth($color-oranges, 3);
+$color-orange-600: nth($color-oranges, 4);
+$color-orange-500: nth($color-oranges, 5);
+$color-orange-400: nth($color-oranges, 6);
+$color-orange-300: nth($color-oranges, 7);
+$color-orange-200: nth($color-oranges, 8);
+$color-orange-100: nth($color-oranges, 9);
+
+$color-red-900: nth($color-reds, 1);
+$color-red-800: nth($color-reds, 2);
+$color-red-700: nth($color-reds, 3);
+$color-red-600: nth($color-reds, 4);
+$color-red-500: nth($color-reds, 5);
+$color-red-400: nth($color-reds, 6);
+$color-red-300: nth($color-reds, 7);
+$color-red-200: nth($color-reds, 8);
+$color-red-100: nth($color-reds, 9);
+
+$color-purple-900: nth($color-purples, 1);
+$color-purple-800: nth($color-purples, 2);
+$color-purple-700: nth($color-purples, 3);
+$color-purple-600: nth($color-purples, 4);
+$color-purple-500: nth($color-purples, 5);
+$color-purple-400: nth($color-purples, 6);
+$color-purple-300: nth($color-purples, 7);
+$color-purple-200: nth($color-purples, 8);
+$color-purple-100: nth($color-purples, 9);
+
+$color-blue-900: nth($color-blues, 1);
+$color-blue-800: nth($color-blues, 2);
+$color-blue-700: nth($color-blues, 3);
+$color-blue-600: nth($color-blues, 4);
+$color-blue-500: nth($color-blues, 5);
+$color-blue-400: nth($color-blues, 6);
+$color-blue-300: nth($color-blues, 7);
+$color-blue-200: nth($color-blues, 8);
+$color-blue-100: nth($color-blues, 9);
+
+$color-green-900: nth($color-greens, 1);
+$color-green-800: nth($color-greens, 2);
+$color-green-700: nth($color-greens, 3);
+$color-green-600: nth($color-greens, 4);
+$color-green-500: nth($color-greens, 5);
+$color-green-400: nth($color-greens, 6);
+$color-green-300: nth($color-greens, 7);
+$color-green-200: nth($color-greens, 8);
+$color-green-100: nth($color-greens, 9);
+
+/*----------  Special colors  ----------*/
+
+$color-black-100: #000;
+$color-white-100: #fff;
+
+$color-body-text: #333335;
+$color-body-text-light: #656568;
+
+/* Charts */
+$color-charts-gridlines: #e7e7e7;
+$color-charts-axis-text: #898989;
+
+
+
+/*=====  End of Color Variables  ======*/
+
+/*=============================================
+=            Fonts                            =
+=============================================*/
+
+
+$font-headline: "Oswald", sans-serif;
+$font-sans: "Open Sans", sans-serif;
+
+$font-sans-mono: "Open Sans", sans-serif;
+
+$font-serif:  serif;
+
+/*=====  End of Fonts  ======*/
+
+/*=============================================
+=            Structural                       =
+=============================================*/
+
+$breakpoints: (
+  // mobile-large, 329px
+  "small": 20.563em,
+  // tablet/newsletter, 599px
+  "medium": 37.438em,
+  // desktop, 785px
+  "large": 49.063em
+);
+
+// Used to calculate font size in font-clamp mixin.
+$breakpoints-min-width: 20.563rem;
+$breakpoints-max-width: 49.063rem;
+$breakpoints-width-diff: 28.5rem; // Difference in rems between small & large breakpoints
+
+/*=====  End of Structural  ======*/

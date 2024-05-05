@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+@use "sass:map";
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+/* Mobile Specific Styles */
+@include mq("medium") {
+  .is-mobile {
+    display: none;
+  }
+}
+
+/**
+ *
+ * Newsletter specific styles.
+ * Subtract 1px from the breakpoint because we're switching from min-width to max-width and need 599px to be included.
+ *
+ */
+
+$newsletter-size: map-get($breakpoints, "medium");
+$breakpoint-size: $newsletter-size - em(1px);
+
+@include mq($breakpoint-size, $dir: "max-width") {
+  .is-newsletter {
+    display: none;
+  }
+}

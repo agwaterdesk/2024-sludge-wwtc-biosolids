@@ -1,0 +1,25 @@
+{
+  "project": {
+    "name": "[insert name]",
+    "slug": "[insert slug]"
+  },
+  "s3": {
+    "bucket": "",
+    "folder": "[insert slug]"
+  },
+  "google": {
+    "doc": [
+      {
+        "id": "",
+        "filepath": "src/data/copy.json"
+      }
+    ],
+    "sheet": [
+      {
+        "id": "",
+        "gid": "",
+        "filepath": ""
+      }
+    ]
+  }
+}
