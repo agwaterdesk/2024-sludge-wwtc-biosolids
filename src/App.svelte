@@ -8,6 +8,7 @@
   new pym.Child({
     polling: 500,
   });
+  
 </script>
 
 <Window />
