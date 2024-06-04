@@ -11,13 +11,12 @@ const isBatch = argv.type === "batch";
 const destinationPath = isBatch ? "batches" : "public/fallbacks";
 const slug = projectConfig.project.slug;
 const queryStringVar = projectConfig.project.queryStringVar;
-const url = "http://localhost:3000/";
+const url = "http://localhost:3000/?credit=false";
 const containerId = ".chart-container";
 
 const fallbackSizes = [
-  { name: "apple", width: 375, toResize: false },
-  { name: "fallback", width: 600, toResize: false },
-  { name: "social", width: 800, height: 450, toResize: true },
+  { name: "mobile", width: 375, toResize: false },
+  { name: "desktop", width: 600, toResize: false },
   { name: "insta", width: 600, isSquare: true, toResize: true, instaSlide: 0 },
 ];
 

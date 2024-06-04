@@ -19,7 +19,25 @@
   line-height: 1.5;
   color: $color-body-text-light;
   margin-bottom: rems(20);
+  a {
+    color: $color-body-text-light;
+  }
 }
+
+.credit {
+  font-family: var(--font-sans);
+  @include font-size(12px);
+  line-height: 1.5;
+  color: $color-body-text-light;
+  margin-top: rems(5);
+  margin-bottom: rems(20);
+  text-align: right;
+
+  a {
+    color: $color-body-text-light;
+  }
+}
+
 
 /*=============================================
 =            Extra typography styles            =
